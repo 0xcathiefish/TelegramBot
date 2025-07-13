@@ -12,7 +12,7 @@ fn init_logger() {
     env_logger::init();
 }
 
-struct TelegramBot<'a>{
+pub struct TelegramBot<'a>{
 
     bot_token: &'a str,
     chat_id: &'a str,
@@ -22,12 +22,12 @@ struct TelegramBot<'a>{
 
 impl<'a> TelegramBot<'a> {
 
-    fn new(bot_token: &'a str, chat_id: &'a str, text: &'a str) -> Self{
+    pub fn new(bot_token: &'a str, chat_id: &'a str, text: &'a str) -> Self{
 
         TelegramBot{bot_token,chat_id,text}
     }
 
-    fn send_msg(&self) { 
+    pub fn send_msg(&self) { 
 
         init_logger();
 
